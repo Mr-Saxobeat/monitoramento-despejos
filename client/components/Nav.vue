@@ -13,19 +13,19 @@
                     <NuxtLink to="/" class="nav-item active">
                         <span class="nav-link">Início</span>
                     </NuxtLink>
-                    <NuxtLink to="quem-somos/" class="nav-item">
+                    <NuxtLink to="/quem-somos/" class="nav-item">
                         <span class="nav-link">Quem somos</span>
                     </NuxtLink>
-                    <NuxtLink to="mapeamento/" class="nav-item">
+                    <NuxtLink to="/mapeamento/" class="nav-item">
                         <span class="nav-link">Mapeamento</span>
                     </NuxtLink>
-                    <NuxtLink to="publicacoes/" class="nav-item">
+                    <NuxtLink to="/publicacoes/" class="nav-item">
                         <span class="nav-link">Publicações</span>
                     </NuxtLink>
-                    <NuxtLink to="denuncie/" class="nav-item">
+                    <NuxtLink to="/denuncie/" class="nav-item">
                         <span class="nav-link">Denuncie</span>
                     </NuxtLink>
-                    <NuxtLink to="contato/" class="nav-item">
+                    <NuxtLink to="/contato/" class="nav-item">
                         <span class="nav-link">Contato</span>
                     </NuxtLink>
                 </div>
