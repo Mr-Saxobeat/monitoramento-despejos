@@ -8,7 +8,7 @@ cidade_mapping = {
     'geom': 'POLYGON',
 }
 
-shp_file = os.path.join(os.getcwd(), 'dados', 'municipios_es', 'simply', 'ES_Municipios.shp')
+shp_file = os.path.join(os.getcwd(), 'dados', 'municipios_es', 'ES_Municipios.shp')
 
 def run(verbose=True):
     lm = LayerMapping(Cidade, shp_file, cidade_mapping)
