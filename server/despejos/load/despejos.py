@@ -7,7 +7,7 @@ from random import random
 
 # from despejos.load import despejos
 # despejos.run()
-def run(path="/home/weiglas/git/monitoramento-remocoes/dados",
+def run(path="/home/weiglas/projetos/monitoramento-despejos/server/dados",
         file_name="dados-despejos.csv"):
 
     minLat = -21
