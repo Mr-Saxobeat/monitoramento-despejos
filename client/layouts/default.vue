@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="__default">
     <Nav />
     <Nuxt />
   </div>
