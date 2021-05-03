@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@600&display=swap');
+
+html, body, #__nuxt, #__layout, #__default {
+    height: 100%;
+    margin: 0;
+    font-family: 'Saira', sans-serif;
+}
+
+.navbar {
+    height: 10%;
+  }
+
+.container-fluid {
+    height: 90%;
+    margin: 0;
+    padding: 0;
+  }
