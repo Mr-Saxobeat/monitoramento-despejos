@@ -1,5 +1,5 @@
 <template>
-    <div id="map-wrap" style="height: 100vh">
+    <div id="map-wrap" class="container-fluid">
         <l-map
             style="height: 100%; width: 100%"
             :zoom="zoom"
