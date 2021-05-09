@@ -5,6 +5,8 @@
             :zoom="zoom"
             :center="center"
             v-on:baselayerchange="baselayerchanged"
+            @update:zoom="zoomUpdated"
+            @update:center="centerUpdated"
         >
             <l-tile-layer :url="url"></l-tile-layer>
 
@@ -37,12 +39,12 @@
                 ></l-circle-marker>
             </l-layer-group>
 
-            <Legend
+            <Legenda
                 position="bottomright"
                 :layer_definition="active_layer"
             />
 
-            <InfoControl 
+            <Detalhes 
                 position="bottomright"
                 :despejo="selectedDespejo" 
             />
@@ -69,8 +71,8 @@ export default {
             visibleLayer: true,
             url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             apiBaseUrl: 'http://127.0.0.1:8000/',
-            zoom: 6,
-            center: [-19.47177130210513, -40.41320800781251],
+            zoom: 8,
+            center: [-19.178876, -39.484863],
       
             active_layer: {},
             city_layer_options: {
@@ -81,10 +83,17 @@ export default {
                 },
             },
             selectedDespejo: null,
+            classeteste: "info-mapa",
         }
     },
 
     methods: {
+        // zoomUpdated(zoom) {
+        //     console.log("Zoom " + zoom)
+        // },
+        // centerUpdated(center) {
+        //     console.log("Centro " + center)
+        // },
         getVisibleLayer() {
             if(this.visibleLayer == true) {
                 this.visibleLayer = false;
@@ -131,16 +140,22 @@ export default {
 }
 </script>
 
-<style scoped>
-.map-control {
-    width: 150px;
+<style>
+.leaflet-right > .leaflet-control{
+    width: 400px;
+    margin: 0;
+    align-items: center;
 }
 
-l-control-layers {
-    width: 150px;
+.leaflet-right > .leaflet-control > .card {
+    max-width: 100% !important;
 }
 
-.leaflet-control {
-    margin: 0 !important;
+.leaflet-control-layers{
+    font-family: 'Saira', sans-serif;
+}
+
+.leaflet-control-layers li, .leaflet-control-layers span {
+    font-size: 20px;
 }
 </style>
