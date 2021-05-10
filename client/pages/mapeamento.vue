@@ -5,8 +5,6 @@
             :zoom="zoom"
             :center="center"
             v-on:baselayerchange="baselayerchanged"
-            @update:zoom="zoomUpdated"
-            @update:center="centerUpdated"
         >
             <l-tile-layer :url="url"></l-tile-layer>
 
