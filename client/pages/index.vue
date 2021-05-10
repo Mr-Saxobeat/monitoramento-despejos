@@ -2,9 +2,17 @@
   <div class="container-fluid">
     <div class="hero-image">
       <div class="hero-text row">
-        <div class="col-sm" style="color: #D1520F; font-size: 35px"><strong>DENUNCIE</strong></div>
-        <div class="col-sm" style="color: #111111; font-size: 25px">Mapeamento de despejos  no Espírito Santo</div>
-        <div class="col-sm" style="color: #000000; font-size: 25px">Conheça seus direitos</div>
+        <NuxtLink to="/denuncie/" class="nav-item col-sm">
+            <span class="nav-link"><div class="" style="color: #D1520F; font-size: 35px"><strong>DENUNCIE</strong></div></span>
+        </NuxtLink>
+
+        <NuxtLink to="/mapeamento/" class="col-sm">
+          <div  style="color: #111111; font-size: 25px">Mapeamento de despejos  no Espírito Santo</div>
+        </NuxtLink>
+
+        <NuxtLink to="/publicacoes/" class="col-sm">
+          <div  style="color: #000000; font-size: 25px">Conheça seus direitos</div>
+        </NuxtLink>
       </div>  
     </div>
   </div>
@@ -37,7 +45,7 @@ export default {}
   background-color: rgba(211, 210, 210, 0.6);
 }
 
-.hero-text div {
+.hero-text .col-sm {
   display: flex;
   justify-content: center;
   align-items: center;
