@@ -19,7 +19,7 @@
                             v-bind:style="{ backgroundColor: legenda.cod_cor,}"
                             class="list-dot"
                             ></span>
-                            {{ legenda.descricao }}
+                            {{ legenda.descricao | capitalize }}
                         </li>
                     </ul>
                 </b-card-text>
@@ -30,7 +30,14 @@
 
 <script>
 export default {
-    props: ["position", "layer_definition"]
+    props: ["position", "layer_definition"],
+    filters: {
+    capitalize: function (value) {
+            if (!value) return ''
+            value = value.toString()
+            return value.charAt(0).toUpperCase() + value.slice(1)
+        }
+    }
 }
 </script>
 
