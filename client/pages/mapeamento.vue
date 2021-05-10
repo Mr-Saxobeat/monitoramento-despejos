@@ -140,7 +140,7 @@ export default {
 
 <style>
 .leaflet-right > .leaflet-control{
-    width: 400px;
+    width: 600px;
     margin: 0;
     align-items: center;
 }
