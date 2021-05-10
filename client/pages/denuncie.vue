@@ -222,13 +222,11 @@
       }
     },
     methods: {
-      onSubmit(event) {
+      async onSubmit(event) {
         event.preventDefault()
-        let response = this.$axios.post('despejo/', data=this.form)
-        console.log(response)
+        let response = await this.$axios.post('despejo/', this.form)
+        window.location.reload()
       },
     },
-    computed: {
-    }
   }
 </script>
