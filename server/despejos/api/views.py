@@ -33,29 +33,33 @@ class DespejoAPIView(APIView):
                         status=status.HTTP_200_OK)
 
     def post(self, request):
-        latitude = request.data['latitude']
-        longitude = request.data['longitude']
-        nome_cidade = request.data['nome_cidade']
-        data_existencia = request.data['dataexistencia']
-        data_ameaca_despejo = request.data['dataameacadespejo']
-        data_para_despejo = request.data['dataparadespejo']
+        latitude = request.data.get('latitude', None)
+        longitude = request.data.get('longitude', None)
+        nome_cidade = request.data.get('cidade', None)
+        data_existencia = request.data.get('data_existencia', None)
+        data_ameaca_despejo = request.data.get('data_ameaca_despejo', None)
+        data_para_despejo = request.data.get('data_para_despejo', None)
 
         if data_existencia == "":
             data_existencia = datetime.date(1, 1, 1)
         else:
-            data_existencia = datetime.datetime.strptime(data_existencia, '%d/%m/%Y').date()
+            # data_existencia = datetime.datetime.strptime(data_existencia, '%d/%m/%Y').date()
+            data_existencia = datetime.datetime.strptime(data_existencia, '%Y-%m-%d').date()
 
         if data_ameaca_despejo == "":
             data_ameaca_despejo = datetime.date(1, 1, 1)
         else:
-            data_ameaca_despejo = datetime.datetime.strptime(data_ameaca_despejo, '%d/%m/%Y').date()
+            data_ameaca_despejo = datetime.datetime.strptime(data_ameaca_despejo, '%Y-%m-%d').date()
 
         if data_para_despejo == "":
             data_para_despejo = datetime.date(1, 1, 1)
         else:
-            data_para_despejo = datetime.datetime.strptime(data_para_despejo, '%d/%m/%Y').date()
+            data_para_despejo = datetime.datetime.strptime(data_para_despejo, '%Y-%m-%d').date()
 
-        point = Point(float(longitude), float(latitude))
+        if latitude == None or longitude == None:
+            point = None
+        else:
+            point = Point(float(longitude), float(latitude))
 
         try:
             cidade = Cidade.objects.get(nome=nome_cidade)
