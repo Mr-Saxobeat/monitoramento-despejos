@@ -7,7 +7,7 @@
         </NuxtLink>
 
         <NuxtLink to="/mapeamento/" class="col-sm">
-          <div  style="color: #111111; font-size: 25px">Mapeamento de despejos  no Espírito Santo</div>
+          <div  style="color: #111111; font-size: 25px">Mapeamento de despejos<br>no Espírito Santo</div>
         </NuxtLink>
 
         <NuxtLink to="/publicacoes/" class="col-sm">
