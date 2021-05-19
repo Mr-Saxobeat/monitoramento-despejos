@@ -64,7 +64,7 @@
           id="input_situacao"
           v-model="form.situacao"
           required
-          :options="['despejo já ocorreu', 'ameaça sem previsão de data']"
+          :options="capitalizeArray(['despejo já ocorreu', 'ameaça sem previsão de data'])"
         >
         </b-form-select>
       </b-form-group>
@@ -77,7 +77,7 @@
           id="input_pandemia"
           v-model="form.pandemia"
           required
-          :options="['sim', 'não']"
+          :options="capitalizeArray(['sim', 'não'])"
         >
         </b-form-select>
       </b-form-group>
@@ -141,7 +141,7 @@
         <b-form-select
           id="input_carater_imovel"
           v-model="form.carater_imovel"
-          :options="['público', 'privado']"
+          :options="capitalizeArray(['público', 'privado'])"
           required
         >
         </b-form-select>
@@ -154,7 +154,7 @@
         <b-form-select
           id="input_tipologia"
           v-model="form.tipologia"
-          :options="['ocupação de terreno', 'ocupação de edifício']"
+          :options="capitalizeArray(['ocupação de terreno', 'ocupação de edifício'])"
           required
         >
         </b-form-select>
@@ -167,14 +167,14 @@
         <b-form-select
           id="input_responsavel_despejo"
           v-model="form.responsavel_despejo"
-          :options="[
+          :options="capitalizeArray([
             'Proprietário privado', 
             'Município',
             'Governo do Estado',
             'Governo Federal',
             'Imobiliária',
             'Ministério Público',
-            ]"
+            ])"
           required
         >
         </b-form-select>
@@ -227,6 +227,15 @@
         let response = await this.$axios.post('despejo/', this.form)
         window.location.reload()
       },
+      capitalizeArray(array_str) {
+        let capitalizedArray = []
+
+        array_str.forEach(oneString => {
+          capitalizedArray.push(oneString[0].toUpperCase() + oneString.slice(1))
+        })
+
+        return capitalizedArray
+      }
     },
   }
 </script>
