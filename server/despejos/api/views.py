@@ -16,7 +16,7 @@ class LayerDefinitionView(generics.ListAPIView):
 
 
 class CidadeListView(generics.ListAPIView):
-    queryset = Cidade.objects.all()
+    queryset = Cidade.objects.all().order_by('nome')
     serializer_class = CidadeSerializer
     # pagination_class = pagination.PageNumberPagination
     # page_size = 10
@@ -57,7 +57,7 @@ class DespejoAPIView(APIView):
             data_para_despejo = datetime.datetime.strptime(data_para_despejo, '%Y-%m-%d').date()
 
         if latitude == None or longitude == None:
-            point = None
+            point = Point(0, 0)
         else:
             point = Point(float(longitude), float(latitude))
 

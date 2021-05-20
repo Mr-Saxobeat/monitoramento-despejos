@@ -68,8 +68,6 @@
     padding-top: 0;
     padding-bottom: 0;
     background-color: rgba(211, 210, 210, 0.46);
-    box-shadow: 0px 5px 15px black;
-    margin-bottom: 5px;
 }
 
 .navbar-brand, .navbar-brand-image{

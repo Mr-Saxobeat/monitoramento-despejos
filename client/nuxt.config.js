@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'client',
+    title: 'Monitoramento de Despejos no Espírito Snato',
     htmlAttrs: {
       lang: 'pt'
     },
