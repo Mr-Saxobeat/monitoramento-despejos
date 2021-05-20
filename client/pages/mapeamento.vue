@@ -69,7 +69,7 @@ export default {
             visibleLayer: true,
             url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             apiBaseUrl: 'http://127.0.0.1:8000/',
-            zoom: 8,
+            zoom: 7,
             center: [-19.178876, -39.484863],
       
             active_layer: {},
