@@ -25,18 +25,20 @@ class Despejo(models.Model):
     situacao = models.CharField('situação', max_length=100, blank=True, null=True)
     pandemia = models.CharField('despejo durante a pandemia', max_length=10, blank=True, null=True)
     descricao = models.TextField('descrição do despejo', blank=True, null=True)
+    etnia = models.CharField('etnia', max_length=100, blank=True, null=True)
     data_existencia = models.DateField('data de existência da ocupação', blank=True, null=True)
     data_ameaca_despejo = models.DateField('data de ameaça do despejo', blank=True, null=True)
     data_para_despejo = models.DateField('data marcada para o despejo', blank=True, null=True)
     carater_imovel = models.CharField('caráter do imóvel', max_length=100, blank=True, null=True)
     tipologia = models.CharField('tipologia', max_length=100, blank=True, null=True)
     zona = models.CharField('zona', max_length=100, blank=True, null=True)
-    responsavel_despejo = models.CharField('responsável pelo despejo', max_length=100, blank=True, null=True)
-    motivo_despejo = models.CharField('motivo para o despejo', max_length=500, blank=True, null=True)
+    responsavel = models.CharField('responsável pelo despejo', max_length=100, blank=True, null=True)
+    motivo = models.CharField('motivo para o despejo', max_length=500, blank=True, null=True)
     cod_acao_justica = models.CharField('código da ação na justica', max_length=100, blank=True, null=True)
     link_sobre_despejo = models.CharField('link sobre o despejo', max_length=500, blank=True, null=True)
     assessoria_juridica = models.CharField('assessoria jurídica', max_length=200, blank=True, null=True)
     movimento_social = models.CharField('movimento social', max_length=200, blank=True, null=True)
+    ameaca_a_lideranca = models.TextField('ameaça a liderança', blank=True, null=True)
 
     @property
     def latitude(self):
