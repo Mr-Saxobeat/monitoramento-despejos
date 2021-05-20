@@ -57,7 +57,7 @@ class DespejoViewSet(viewsets.ViewSet):
             data_para_despejo = datetime.datetime.strptime(data_para_despejo, '%Y-%m-%d').date()
 
         if latitude == None or longitude == None:
-            point = Point(0, 0)
+            point = None
         else:
             point = Point(float(longitude), float(latitude))
 
