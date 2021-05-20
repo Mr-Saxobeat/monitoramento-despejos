@@ -4,7 +4,7 @@ from despejos.models import Despejo, LayerDefinition, Legenda, Cor
 
 @admin.register(Despejo)
 class DespejoAdmin(admin.ModelAdmin):
-    list_display = ('nome_ocupacao', 'cidade', 'num_familias')
+    list_display = ('nome_ocupacao', 'cidade', 'num_familias', 'geom')
     form = DespejoForm
 
 
