@@ -26,7 +26,7 @@ class DespejoAPIView(APIView):
     serializer_class = DespejoSerializer
 
     def get_queryset(self):
-        return Despejo.objects.all()
+        return Despejo.objects.filter(geom__isnull=False)
 
     def get(self, request):
         return Response(self.serializer_class(self.get_queryset(), many=True).data,
