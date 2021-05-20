@@ -5,7 +5,7 @@ from djgeojson.views import GeoJSONLayerView
 from despejos.models import Despejo, Cidade, LayerDefinition
 from despejos.api.serializers import DespejoSerializer, CidadeSerializer, LayerDefinitionSerializer
 from django.contrib.gis.geos import Point
-from rest_framework import status
+from rest_framework import status, viewsets
 import datetime
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -22,17 +22,17 @@ class CidadeListView(generics.ListAPIView):
     # page_size = 10
 
 
-class DespejoAPIView(APIView):
+class DespejoViewSet(viewsets.ViewSet):
     serializer_class = DespejoSerializer
 
     def get_queryset(self):
         return Despejo.objects.filter(geom__isnull=False)
 
-    def get(self, request):
+    def list(self, request):
         return Response(self.serializer_class(self.get_queryset(), many=True).data,
                         status=status.HTTP_200_OK)
 
-    def post(self, request):
+    def create(self, request):
         latitude = request.data.get('latitude', None)
         longitude = request.data.get('longitude', None)
         nome_cidade = request.data.get('cidade', None)
