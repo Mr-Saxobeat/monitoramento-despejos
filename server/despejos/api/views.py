@@ -57,7 +57,7 @@ class DespejoAPIView(APIView):
             data_para_despejo = datetime.datetime.strptime(data_para_despejo, '%Y-%m-%d').date()
 
         if latitude == None or longitude == None:
-            point = None
+            point = Point(0, 0)
         else:
             point = Point(float(longitude), float(latitude))
 
