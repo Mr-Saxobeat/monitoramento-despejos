@@ -7,8 +7,11 @@ from random import random
 
 # from despejos.load import despejos
 # despejos.run()
-def run(path="/home/weiglas/projetos/monitoramento-despejos/server/dados",
+def run(path="",
         file_name="dados-despejos.csv"):
+
+    if path == '':
+        path = os.path.join(os.getcwd(), 'dados')
 
     minLat = -21
     minLon = -42
