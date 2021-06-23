@@ -35,31 +35,35 @@ class DespejoViewSet(viewsets.ViewSet):
     def create(self, request):
         latitude = request.data.get('latitude', None)
         longitude = request.data.get('longitude', None)
-        nome_cidade = request.data.get('cidade', None)
+        nome_cidade = request.data.get('nome_cidade', None)
         data_existencia = request.data.get('data_existencia', None)
         data_ameaca_despejo = request.data.get('data_ameaca_despejo', None)
         data_para_despejo = request.data.get('data_para_despejo', None)
 
-        if data_existencia == "":
+
+        if not data_existencia or data_existencia == "":
             data_existencia = datetime.date(1, 1, 1)
         else:
-            # data_existencia = datetime.datetime.strptime(data_existencia, '%d/%m/%Y').date()
             data_existencia = datetime.datetime.strptime(data_existencia, '%Y-%m-%d').date()
 
-        if data_ameaca_despejo == "":
+
+        if not data_ameaca_despejo or data_ameaca_despejo == "":
             data_ameaca_despejo = datetime.date(1, 1, 1)
         else:
             data_ameaca_despejo = datetime.datetime.strptime(data_ameaca_despejo, '%Y-%m-%d').date()
 
-        if data_para_despejo == "":
+
+        if not data_para_despejo or data_para_despejo == "":
             data_para_despejo = datetime.date(1, 1, 1)
         else:
             data_para_despejo = datetime.datetime.strptime(data_para_despejo, '%Y-%m-%d').date()
+
 
         if latitude == None or longitude == None:
             point = None
         else:
             point = Point(float(longitude), float(latitude))
+
 
         try:
             cidade = Cidade.objects.get(nome=nome_cidade)
