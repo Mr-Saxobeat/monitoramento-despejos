@@ -15,9 +15,9 @@
                             <li><strong>Número de famílias:</strong> {{ despejo.properties.num_familias }}</li>
                             <!-- <li><strong>Endereço:</strong> {{ despejo.properties.endereco }}</li> -->
                             <!-- <li><strong>Descrição:</strong> {{ despejo.properties.descricao }}</li> -->
-                            <li><strong>Data de existência:</strong> {{ despejo.properties.data_existencia }}</li>
-                            <li><strong>Data de ameaça de despejo:</strong> {{ despejo.properties.data_ameaca_despejo }}</li>
-                            <li><strong>Data marcada para o despejo:</strong> {{ despejo.properties.data_para_despejo }}</li>
+                            <li v-if="data_existencia.ano > 1"><strong>Data de existência:</strong> {{ data_existencia.data }}</li>
+                            <li v-if="data_ameaca_despejo.ano > 1"><strong>Data de ameaça de despejo:</strong> {{ data_ameaca_despejo.data }}</li>
+                            <li v-if="data_para_despejo.ano > 1"><strong>Data marcada para o despejo:</strong> {{ data_para_despejo.data }}</li>
                         </ul>
                     </div>
                     <div v-else>
@@ -32,6 +32,39 @@
 <script>
 export default {
     props: ["position", "despejo"],
+    computed: {
+        data_existencia() {
+            let data = this.despejo.properties.data_existencia
+            let ano = parseInt(data.slice(0, 4))
+            let mes = parseInt(data.slice(5, 7))
+            let dia = parseInt(data.slice(8))
+
+            return {ano: ano, mes: mes, dia: dia, data: dia + "/" + mes + "/" + ano}
+        },
+
+        data_ameaca_despejo() {
+            let data = this.despejo.properties.data_ameaca_despejo
+            let ano = parseInt(data.slice(0, 4))
+            let mes = parseInt(data.slice(5, 7))
+            let dia = parseInt(data.slice(8))
+
+            return {ano: ano, mes: mes, dia: dia, data: dia + "/" + mes + "/" + ano}
+        },
+
+        data_para_despejo() {
+            let data = this.despejo.properties.data_para_despejo
+            let ano = parseInt(data.slice(0, 4))
+            let mes = parseInt(data.slice(5, 7))
+            let dia = parseInt(data.slice(8))
+
+            return {
+                ano: ano,
+                mes: mes,
+                dia: dia,
+                data: dia + "/" + mes + "/" + ano
+            }
+        },
+    },
 }
 </script>
 
