@@ -140,7 +140,7 @@ export default {
 
 <style>
 .leaflet-right > .leaflet-control{
-    width: 600px;
+    width: 400px;
     margin: 0;
     align-items: center;
 }
@@ -154,6 +154,6 @@ export default {
 }
 
 .leaflet-control-layers li, .leaflet-control-layers span {
-    font-size: 20px;
+    font-size: 15px;
 }
 </style>
