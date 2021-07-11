@@ -11,6 +11,7 @@
                 class="leaflet-touch leaflet-control-layers"
             >
                 <b-card-text>
+                    <p v-if="layer_definition.descricao">{{ layer_definition.descricao }}</p>
                     <ul>
                         <li 
                         v-for="legenda in layer_definition.legendas" 
