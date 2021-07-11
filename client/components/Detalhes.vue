@@ -7,14 +7,14 @@
                 style="max-width: 20rem;"
                 class="leaflet-touch leaflet-control-layers"
             >
-                <b-card-text>
+                <b-card-text class="detalhes-content">
                     <div v-if="despejo">
                         <ul>
                             <li><strong>Cidade:</strong> {{ despejo.properties.cidade }}</li>
                             <li><strong>Ocupação:</strong> {{ despejo.properties.nome_ocupacao }}</li>
                             <li><strong>Número de famílias:</strong> {{ despejo.properties.num_familias }}</li>
-                            <!-- <li><strong>Endereço:</strong> {{ despejo.properties.endereco }}</li> -->
-                            <!-- <li><strong>Descrição:</strong> {{ despejo.properties.descricao }}</li> -->
+                            <li><strong>Endereço:</strong> {{ despejo.properties.endereco }}</li>
+                            <li><strong>Descrição:</strong> {{ despejo.properties.descricao }}</li>
                             <li v-if="data_existencia.ano > 1"><strong>Data de existência:</strong> {{ data_existencia.data }}</li>
                             <li v-if="data_ameaca_despejo.ano > 1"><strong>Data de ameaça de despejo:</strong> {{ data_ameaca_despejo.data }}</li>
                             <li v-if="data_para_despejo.ano > 1"><strong>Data marcada para o despejo:</strong> {{ data_para_despejo.data }}</li>
@@ -69,6 +69,11 @@ export default {
 </script>
 
 <style scoped>
+.detalhes-content{
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 ul {
     text-align: left;
     padding-left: 20px;
