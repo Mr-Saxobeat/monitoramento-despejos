@@ -87,6 +87,7 @@ class Legenda(models.Model):
 class LayerDefinition(models.Model):
     nome_visualizacao = models.CharField(max_length=100)
     nome = models.CharField(max_length=100)
+    descricao = models.CharField(max_length=200, blank=True, null=True)
     legendas = models.ManyToManyField(Legenda)
 
     def __str__(self):
