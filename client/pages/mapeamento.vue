@@ -8,14 +8,23 @@
         >
             <l-tile-layer :url="url"></l-tile-layer>
 
-            <l-geo-json 
-                :geojson="city_geojson" 
-            ></l-geo-json>
+            <Detalhes 
+                position="bottomright"
+                :despejo="selectedDespejo" 
+            />
 
             <l-control-layers
                 position="bottomright"
                 :collapsed="false"
             ></l-control-layers>
+            <Legenda
+                position="bottomright"
+                :layer_definition="active_layer"
+            />
+
+            <l-geo-json 
+                :geojson="city_geojson" 
+            ></l-geo-json>
 
             <div v-if="despejos_geojson">
                 <l-layer-group
@@ -37,15 +46,6 @@
                 ></l-circle-marker>
             </l-layer-group>
 
-            <Legenda
-                position="bottomright"
-                :layer_definition="active_layer"
-            />
-
-            <Detalhes 
-                position="bottomright"
-                :despejo="selectedDespejo" 
-            />
             </div>
             
         </l-map>
@@ -139,6 +139,10 @@ export default {
 </script>
 
 <style>
+.leaflet-bottom .leaflet-right {
+    height: 100%;
+}
+
 .leaflet-right > .leaflet-control{
     width: 400px;
     margin: 0;
