@@ -9,8 +9,12 @@ html, body, #__nuxt, #__layout, #__default {
     height: 15%;
   }
 
+.container {
+  min-height: 65%;
+}
+
 .container-fluid {
-    height: 85%;
+  height: 85%;
     margin: 0;
     padding: 0;
   }
