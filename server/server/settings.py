@@ -144,10 +144,3 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ]
 }
-
-# WEBPACK_LOADER = {
-#     'DEFAULT': {
-#         'BUNDLE_DIR_NAME': 'dist/',
-#         'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json')
-#     }
-# }
